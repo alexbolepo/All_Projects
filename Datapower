@@ -1,0 +1,83 @@
+# Origin
+docker run -it \
+  -v $PWD/config:/drouter/config \
+  -v $PWD/local:/drouter/local \
+  -e DATAPOWER_ACCEPT_LICENSE=true \
+  -e DATAPOWER_INTERACTIVE=true \
+  -e DATAPOWER_WORKER_THREADS=4 \
+  -p 9090:9090 \
+  --restart=always \
+  ibmcom/datapower
+
+
+
+###https://gist.github.com/arthurfnsc/638d64ad26edb677dff1fe6e224706f6
+docker run -it \
+   -v $PWD/config:/drouter/config \
+   -v $PWD/local:/drouter/local \
+   -e DATAPOWER_ACCEPT_LICENSE=true \
+   -e DATAPOWER_INTERACTIVE=true \
+   -p 9090:9090 \
+   -p 9022:22 \
+   -p 5554:5554 \
+   -p 8000-8010:8000-8010 \
+   --name datapower \
+   ibmcom/datapower
+
+   #docker: Error response from daemon:
+  # driver failed programming external connectivity on endpoint datapower 
+  #(2ef7354fd8d8e0d5b58c1ce19789ec4645caa528b284085c5b6eb96f275bab92):
+    # Bind for 0.0.0.0:8000 failed: port is already allocated.
+   #ERRO[0000] error waiting for container: context canceled 
+
+
+   docker run -it \
+   -v $PWD/config:/drouter/config \
+   -v $PWD/local:/drouter/local \
+   -e DATAPOWER_ACCEPT_LICENSE=true \
+   -e DATAPOWER_INTERACTIVE=true \
+   -p 9090:9090 \
+   -p 8005-8010:8005-8010 \
+   --name datapower \
+   ibmcom/datapower
+#######Enable web-mgmt########
+#https://www.ibm.com/support/knowledgecenter/SS9H2Y_7.7.0/com.ibm.dp.doc/web-mgmt_global.html
+#########################################################
+
+
+#######portainer#######
+docker run -d -p 8000:8000 \
+-p 9000:9000 \
+--name=portainer \
+--restart=always \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v portainer_data:/data portainer/portainer-ce \
+
+#########################################################
+
+
+#########################################################
+https://logixbubble.wordpress.com/2017/10/30/virtual-datapower-setup/
+docker run -it \
+   -v $PWD/config:/drouter/config \
+   -v $PWD/local:/drouter/local \
+   -e DATAPOWER_ACCEPT_LICENSE=true \
+   -e DATAPOWER_INTERACTIVE=true \
+   -p 9090:9090 \
+   -p 9022:22 \
+   -p 5554:5554 \
+   -p 8000-8010:8000-8010 \
+    --name idg \
+   ibmcom/datapower
+
+
+
+
+
+#########################################################
+https://forums.docker.com/t/can-not-stop-docker-container-permission-denied-error/41142/5
+#########################################################
+
+
+https://hub.docker.com/r/bitnami/drupal
+#########################################################
