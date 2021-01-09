@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drupal</title>
+
 </head>
 <p>
     <h2> EEptit</h2>
@@ -56,13 +57,34 @@
 
 
 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </div><div id="data">
+
     </div>
+    <script> ///https://www.youtube.com/watch?v=1TYg6O31KW4
+
+    function callback(response) {
+        console.log(response)
+        document.getElementById("data").innerHTML=response.IPv4
+
+    }
+
+        $.ajax({
+            //url: "http://ipinfo.io/json",
+           url: "https://geoip-db.com/jsonp/",
+            dataType: "jsonp"
+        })
+    </script>
+
 
 
 
     <!-- <script src="task_1.js"> </script> -->
     <script src="task_2.js"> </script>
-
+    <!-- <script src="fetch-request-headers.js" ></script> -->
+          <!-- <script src="http://ipinfo.io/json"></script>  -->
 
 </body>
 

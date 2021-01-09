@@ -1,217 +1,132 @@
-// "use strict";
+/* Задание на урок:
 
-// //const obj = new Object{};
+1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
+перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
+Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
 
-// const options = {
-//     name: 'test',
-//     width: 1024,
-//     height: 1024,
-//     colors: {
-//         border:'black',
-//         background:'red'
-//     },
-//     makeTest: function () {
-//         console.log("test");
+2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+
+'use strict';
+
+// Код возьмите из предыдущего домашнего задания
+
+//"use strict" ;
+//'use strict' ;
+
+//let numberOfFilms;
+
+// function start() {
+//     numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+//     while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+//         numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 //     }
-// };
-
-// //options.makeTest();
-
-// const {border,background} =options.colors;
-// console.log(border);
-
-
-// //console.log(options.name);
-
-// //delete options.name;
-// //console.log(Object.keys(options).length);
-
-
-
-
-// //////////////////////////////
-
-// // let counter =0;
-
-// // for (let key in options){
-// //     if (typeof(options[key]) === 'object') {
-// //         for ( let i in options[key]) {
-// //             console.log(`Свойство,${i} имеет значение ${options[key][i]}`);
-
-// //         }
-// //     } else {
-// //             console.log(`Свойство,${key} имеет значение ${options[key]}`);
-// // counter++;
-// //     }
-// // }
-// // console.log(counter);
-
- ////////////////////////Урок 21///////////////////////////////////////
-
-
-// const arr = [1,2,3,4,5,4];
-// arr.pop();
-// arr.push(10);
-// console.log(arr);
-
-
-// for (let i = 0; i < arr.length; i++){
-//    console.log(arr[i]);
 // }
 
-for (let value of arr ) {
-    console.log(value);
-}
+// start();
 
-// /////////////////////////////////////////////////////////////
-
-// const arr = [1,2,3,4,5,4];
-// // arr [99] = 0;
-// // console.log(arr.length);
-// // console.log(arr);
-
-
-const arr = [1, 2, 3, 4, 50, 60];
-arr.forEach(function (options, i, arr) {
-    console.log(`${i}: ${options} Внутри массива ${arr}`);
-});
-
-
-
-const str = prompt("","");
-const products = str.split(","); ////////Split and then join on browser
-products.sort();                 ////Алгоритм быстрой сортировки
-console.log(products.join(';')); ////////Split and then join on browser
-
-const arr = [14, 13, 78, 22 , 3, 19];
-arr.sort(compareNum); ////////Sort by a-b
-console.log(arr);
-
-function compareNum(a, b) {
-    return a - b;
-}
- 
-
-
-
-
-
-
-///////////////////////////////Урок 22/////////////////////////////////
-
-let a = 5,
-b =a;
-
-b = a + 7 ;
-console.log(b);
-
-const obj = {
-    a:5,
-    b:1
-};
-
-const copy = obj; //Передача объекта по ссылке
-copy.a = 10;
-console.log(copy);
-
-
-///Next Copy and ADD
-function copy2 (mainObj) {
-   let objCopy ={};
-   let key;
-   for (key in mainObj) {
-       objCopy[key] = mainObj[key];
-   }
-   return objCopy;
-}
-
-const numbers = {
-    a: 2,
-    b: 5,
-    c: {
-        x:7,
-        y:4
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function () {
+      personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+  
+      while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+      }
+  },
+   rememberMyFilms: function() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt('Один из последних просмотренных фильмов?', ''),
+              b = prompt('На сколько оцените его?', '');
+    
+        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+            console.log('done');
+        } else {
+            console.log('error');
+            i--;
+        }
     }
-} ;
-
-const newNumbers = copy2(numbers);
-
-newNumbers.a = 10;  // Изменение поверхностных и глубоких копий объекта
-newNumbers.c.x = 10;
-
-console.log(newNumbers);
-console.log(numbers);
-
- ///Добавление нового объекта assign + 
-const add = {
-    d: 17,
-    e: 20
-};
-console.log(Object.assign(numbers, add));
-
-///Копия.clone в новый объект 14:04
-const clone = Object.assign({},add);
-clone.d =20 ;
-console.log(add);
-console.log(clone);
-
-///Copy of array Копия массива
-const oldArray = ['a', 'b',  'c'];
-const copyArray = oldArray.slice(); ///copy array
-copyArray[1] = 'wqer';
-console.log(oldArray);
-console.log(copyArray);
-
-///4th way to creTE SUPERFISIAL COPY 4Й Способ создания поверхностных копий объектов
-/// spread operator
-const video = ['youtube', 'vmeo', 'rutube'],
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video,...blogs, 'vk', 'facebook'];
-console.log(internet);
-
-function log (a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
+},
+ detectPersonalLevel:function() {
+  if (personalMovieDB.count < 10) {
+      console.log("Просмотрено довольно мало фильмов");
+  } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+      console.log("Вы классический зритель");
+  } else if (personalMovieDB.count >= 30) {
+      console.log("Вы киноман");
+  } else {
+      console.log("Произошла ошибка");
+  }
+},
+ showMyDB: function (hidden) {
+  if (!hidden) {
+      console.log(personalMovieDB);
+  }
+},
+ writeYourGenres: function () {
+  for (let i = 1; i <= 3; i++) {
+      personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+  }
 }
 
-const num =[2,5,7];
-log(...num);
-
-//Spread operator
-const array = ["a","b"];
-const newArray = [...array] //Spread operator
-console.log(array);
-
-//Object Spread operator
-const q = {
-    one: 1,
-    two: 2
-
 };
-const newobj = {...q};
 
 
-/////////Урок 23///Основы ООП,прототипно-ориентированное наследование
-let str = "some";
-let str obj =new String(str);
+// function rememberMyFilms() {
+//     for (let i = 0; i < 2; i++) {
+//         const a = prompt('Один из последних просмотренных фильмов?', ''),
+//               b = prompt('На сколько оцените его?', '');
+    
+//         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//             personalMovieDB.movies[a] = b;
+//             console.log('done');
+//         } else {
+//             console.log('error');
+//             i--;
+//         }
+//     }
+// }
 
+//rememberMyFilms();
 
+// function detectPersonalLevel() {
+//     if (personalMovieDB.count < 10) {
+//         console.log("Просмотрено довольно мало фильмов");
+//     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+//         console.log("Вы классический зритель");
+//     } else if (personalMovieDB.count >= 30) {
+//         console.log("Вы киноман");
+//     } else {
+//         console.log("Произошла ошибка");
+//     }
+// }
 
+//detectPersonalLevel();
 
+// function showMyDB (hidden) {
+//     if (!hidden) {
+//         console.log(personalMovieDB);
+//     }
+// }
 
+// showMyDB(personalMovieDB.privat);
 
+// function writeYourGenres() {
+//     for (let i = 1; i <= 3; i++) {
+//         personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+//     }
+// }
 
+//writeYourGenres();
 
-
-
- ////////////////////////menushka07.01.21///////////////////////////////////////
-const menushka = [1, 2, 3,4,5,6,7,8,9,10];
-console.log(menushka);
-
-const menushka = {
-    Ping:  {},
-    curl: '',
-    WhatisMyIP: []
-};
-console.log(menushka);               
