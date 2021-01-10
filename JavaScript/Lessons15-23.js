@@ -194,7 +194,7 @@
 
 // /////////Урок 23///Основы ООП,прототипно-ориентированное наследование
 let str = "some";
-let strObj =new String(str);
+let strObj = new String(str);
 console.log(typeof(str));
 console.log(typeof(strObj));
 console.dir([1,2,3,]);
@@ -217,12 +217,11 @@ const soldier = {
 //john.__proto__ = soldier;
 //console.log(john.armor);
 
+const john = Object.create(soldier);
+
 
 Object.setPrototypeOf(john, soldier);
 john.sayHello();
-
-
-const john = Object.create(soldier)
 
 
 
