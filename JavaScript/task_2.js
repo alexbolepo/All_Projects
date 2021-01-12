@@ -111,3 +111,4 @@ const personalMovieDB = {
         });
     }
 };
+console.log(personalMovieDB);
