@@ -7,29 +7,50 @@
     <title>Drupal</title>
 
 </head>
+
 <p>
-    <h2> EEptit</h2>
-   Хуй знауи 
+    <h2> "H2" </h2>
 </p>
 
+<style>
+    body {
+        background-color: rgb(78, 141, 161);
+        border: 1px solid
+    }
+
+    h1 {
+        color: orange;
+        text-align: center;
+    }
+
+    p {
+        font-family: verdana;
+        font-size: 20px;
+    }
+</style>
 
 <body>
+    <div class="btnts">
+        <button>1</button>
+        <button>2</button>
+            <input type="button" value="PushMe"> <br>
 
+    </div>
 
 
     <div style="text-align: center; border: 1px solid">
         <input type="button" value="PushMe"> <br>
 
-       #1 This Site  and can be yours  is protected by 
-          IPS : Fail2Ban 
-                  AbuseDB 
+        #1 This Site and can be yours is protected by
+        IPS : Fail2Ban
+        AbuseDB
 
 
-       #2 "This is Examlpe of Datapower API setup" <br>
+        #2 "This is Examlpe of Datapower API setup" <br>
         Domain*2 Prod1/Prod2
-        A TLS termination proxy (or SSL termination proxy[1], or SSL offloading By :  "Multi-Protocol Gateway"
-        HTTP Handler 
-        Request Typ -	SOAP
+        A TLS termination proxy (or SSL termination proxy[1], or SSL offloading By : "Multi-Protocol Gateway"
+        HTTP Handler
+        Request Typ - SOAP
         AAA
 
 
@@ -42,38 +63,26 @@
         Connecting to json
 
 
-
-         FallToban By Abuse DB
-
+        FallToban By Abuse DB
 
         #This Site is and can be yours under continiusly Risk Asswsment (Vulnaribility Scan)
-         By different tools
+        By different tools
 
 
-
-
-
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </div><div id="data">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </div>
-    <script> ///https://www.youtube.com/watch?v=1TYg6O31KW4
+    <div id="data"></div>
+    <script>
+        ///https://www.youtube.com/watch?v=1TYg6O31KW4
+        function callback(response) {
+            console.log(response)
+            document.getElementById("data").innerHTML = response.IPv4
 
-    function callback(response) {
-        console.log(response)
-        document.getElementById("data").innerHTML=response.IPv4
-
-    }
+        }
 
         $.ajax({
-           //url: "http://ipinfo.io/json",
-           url: "https://geoip-db.com/jsonp/",
+            //url: "http://ipinfo.io/json",
+            url: "https://geoip-db.com/jsonp/",
             dataType: "jsonp"
         })
     </script>
@@ -81,14 +90,11 @@
 
 
 
-    <!-- <script src="task_1.js"> </script> -->
-    <script src="task_2.js"> </script>
+
+
+    <script src="ajaxIP.js"></script>
     <!-- <script src="fetch-request-headers.js" ></script> -->
-          <!-- <script src="http://ipinfo.io/json"></script>  -->
 
 </body>
-
-
-
 
 </html>

@@ -1,7 +1,7 @@
 'use strict';
 ///Lesson28
 
-const box = document.getElementById('box'), //console.log(box);
+const box = document.getElementById('box'), //console.log(box); //
     btnt = document.getElementsByTagName('button'), //console.log(btnt[1]);
     circl = document.getElementsByClassName('circle'), //console.log(circl);
     wrapper = document.querySelector('.wrapper'),
@@ -38,12 +38,12 @@ for (let i = 0; i < hearts.length; i++) {
 
 
 
-///Создадим div новый элемент НЕ документе но в ЖэСэ
- const div = document.createElement('div'); 
+
+ const div = document.createElement('div'); ///Создадим div новый элемент НЕ документе но в ЖэСэ
  //const text = document.createTextNode('I was here');
 
 div.classList.add('black');  ///Возьмём + Создадим и назовём его...
-//document.body.append(div);        ///Добавим в конец в документ
+//document.body.append(div);        ///Добавим в BODY конец в документ
 wrapper.append(div); // Пусть внутри wrapper появится div
 div.style.background = 'orange'; ///Пожелтим
 
@@ -67,4 +67,6 @@ div.innerHTML = "<h1>Hello</h1>"; //Запишем в кнопочку
 
 //div.insertAdjacentHTML('beforebegin','<h2>Hello</h2>');
 div.insertAdjacentHTML('afterend','<h2>Hellooooo</h2>');
+
+
 
