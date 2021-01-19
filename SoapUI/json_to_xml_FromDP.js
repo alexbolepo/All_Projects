@@ -46,6 +46,7 @@ if (statuscode == '200') {
                 '<' + nsPrefix + ':AnnotationID>' + AnnotationID + '</' + nsPrefix + ':AnnotationID>' +
                 '</' + nsPrefix + ':' + 'Document_OUT>' +
                 '</soapenv:Body>' +
+                //'</soapenv:Body>' +// Added
                 '</soapenv:Envelope>';
 
             hm.current.set('Content-Type', 'text/xml');
