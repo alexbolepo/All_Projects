@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type = "text/xsl" href = 
+"SimpleXML.xsl"?>
+
+<class>
+   <student>
+     <firstname>Alexey</firstname>
+     <lastName>Bolot</lastName>
+     <nickName>Slava</nickName>
+     
+   </student>
+    
+    <student>
+     <firstname>Alexey</firstname>
+     <lastName>Bolot</lastName>
+     <nickName>Slava</nickName>
+   </student>
+
+
+
+</class>
