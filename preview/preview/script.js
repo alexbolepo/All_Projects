@@ -9,11 +9,11 @@ btns.addEventListener('click',() => {
     alert('Click');
 });
 
-// btn.addEventListener('mouseenter',(e) => {
-//     console.log('Hover'),
-//     console.log(e.target);
-//     //e.target.remove();
-// });
+btn.addEventListener('mouseenter',(e) => {
+    console.log('Hover'),
+    console.log(e.target);
+    //e.target.remove();
+});
 
 
 // btns.addEventListener('click',(e) => {
