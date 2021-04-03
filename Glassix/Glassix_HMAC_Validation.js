@@ -21,7 +21,7 @@ session.input.readAsBuffers(function (error, buffers) {
         
 
         const hmac = crypto.createHmac('hmac-sha1', Buffer.from(key));
-        console.log("@@AB 5 Hello : " + hmac);
+        console.alert("@@AB 5 Hello : " + hmac);
 
         const input = "This is plaintext to hash";
         const result = hmac.update(body).digest('hex');
@@ -29,7 +29,7 @@ session.input.readAsBuffers(function (error, buffers) {
 
         //HMAC SUM Generator = ab04c435af7064c6873994099db7e3656d7e0a42
         //                     ed2cf2dd05b1e0fab81e6d7fd15f899b3d819786
-        //                     ed2cf2dd05b1e0fab81e6d7fd15f899b3d819786
+        //                     a0c71d55bbcfcd839ed040d822c01a8c71f4b91d
         
         //HMAC SUM Generator from log text = 22abc8203424e0b3082d6cbabb83101c9e5e7428
 
