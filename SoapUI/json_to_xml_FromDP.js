@@ -13,7 +13,8 @@ if (statuscode == '200') {
 
     session.input.readAsJSON(function (error, json) {
         if (error) {
-            console.error('Input is not valid JSON. ', error);
+            console.error('@@@AB Input is not valid JSON. ', error);
+            session.output.write(error);
         } else {
             var prop = json.name;
             var output = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:' + nxPrefix + '="http://www.w3.org/2001/XMLSchema">' +

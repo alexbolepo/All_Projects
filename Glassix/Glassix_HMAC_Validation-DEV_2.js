@@ -13,23 +13,23 @@ session.input.readAsJSON(function (error, buffers) {
         console.error(buffers);
         //console.error(JSON.parse(buffers));
 
-        console.error("@@AB 5  : " + buffers.toString());
-        console.error("@@AB 6 : " + JSON.stringify(buffers));
+        console.error("@@AB 5  : " + buffers.toString()); // @@AB 5 : [object Object]
+        console.error("@@AB 6 : " + JSON.stringify(buffers)); // @@AB 6 : {"key":"95
         const buffersStringified = JSON.stringify(buffers);
-        console.log("@@AB 1 : " + `${buffersStringified} ${buffersStringified.length}`);
+        console.error("@@AB 7 : " + `${buffersStringified} ${buffersStringified.length}`); // @@AB 6 : {"key":"95
 
-        //let student = JSON.parse(JSON.stringify(buffers));
-        //console.error("@@AB 7 : " + student);
         
-        var body = buffers.toString();
-        console.error("@@AB 8  : " + body);
+        const removeEmptySpaces = JSON.stringify(JSON.parse(buffersStringified)) 
+        console.error("@@AB 8 : " + `${removeEmptySpaces} ${removeEmptySpaces.length}`);
+       
 
         const crypto = require('crypto');
         const key = '0KtKcfNvNc231fD0d2LpfMVCEEJkwfDCSj8Y76lf6QzpAPVVylNpUjEP01wjnpz6hLJcJdaTGrzwDZoKJEbVXPalfjpJMcJnCgriqLi4fegDxaeQJ3A3Qh1GM2dQ0zFO';
         const hmac = crypto.createHmac('hmac-sha1', Buffer.from(key));
         const result = hmac
             //.update(body)
-            .update(JSON.stringify(buffers))
+            //.update(JSON.stringify(buffers))
+            .update(JSON.stringify(buffersStringified))
             .digest('hex');
         console.error("@@AB 9 Hello : " + result);
         const result2 = "sha1=" + result;
